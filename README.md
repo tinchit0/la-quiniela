@@ -64,6 +64,9 @@ Then (and only then), once you are confortable with the result, move your code t
 
 You can use all the third-party libraries you want as long as they are available in the PyPI repositories (that is, as long as you can install them with ```pip```) and you explicitly add them in ```requirements.txt```.
 
+Needless to say, the model is not expected to get all the results right, far from it. Football is (luckily) highly impredictable. If the model gets about 40%-50% right, you can already consider to be great.
+
+
 ### Data
 
 The data is provided as a SQLite3 database that is inside the ZIP file. This database contains the following tables:
