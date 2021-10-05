@@ -15,7 +15,7 @@ def parse_seasons(value):
     seasons = []
     for chunk in value.split(","):
         if ":" in chunk:
-            try:asdfasdfasdfasdfa
+            try:
                 start, end = map(int, chunk.split(":"))
                 assert start < end
             except:
