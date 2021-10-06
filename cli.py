@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-import os
-import sys
 import logging
 import argparse
 from datetime import datetime
@@ -18,7 +16,7 @@ def parse_seasons(value):
             try:
                 start, end = map(int, chunk.split(":"))
                 assert start < end
-            except:
+            except Exception:
                 raise argparse.ArgumentTypeError(f"Unexpected format for seasons {value}")
             for i in range(start, end):
                 seasons.append(f"{i}-{i+1}")
@@ -26,7 +24,7 @@ def parse_seasons(value):
             try:
                 start, end = map(int, chunk.split("-"))
                 assert start == end - 1
-            except:
+            except Exception:
                 raise argparse.ArgumentTypeError(f"Unexpected format for seasons {value}")
             seasons.append(chunk)
     return seasons
@@ -90,7 +88,7 @@ if __name__ == "__main__":
         predict_data = io.load_matchday(args.season, args.division, args.matchday)
         predict_data["pred"] = model.predict(predict_data)
         print(f"Matchday {args.matchday} - LaLiga - Division {args.division} - Season {args.season}")
-        print("="*70)
+        print("=" * 70)
         for _, row in predict_data.iterrows():
             print(f"{row['home_team']:^30s} vs {row['away_team']:^30s} --> {row['pred']}")
         io.save_predictions(predict_data)
