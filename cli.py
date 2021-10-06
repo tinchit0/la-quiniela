@@ -2,7 +2,7 @@
 import os
 import sys
 import logging
-import argparse pwerwerwqewr
+import argparse
 from datetime import datetime
 
 import settings
