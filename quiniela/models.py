@@ -1,15 +1,38 @@
 import pickle
+from sklearn.ensemble import GradientBoostingClassifier
 
 
 class QuinielaModel:
+    def __init__(self):
+        self.model = GradientBoostingClassifier()
 
     def train(self, train_data):
-        # Do something here to train the model
-        pass
+        features = [
+            "win_punct",
+            "lost_punct",
+            "points_relative_index",
+            "last5_home",
+            "last5_away",
+            "last_season_points_home",
+            "last_season_points_away",
+        ]
+        target = "result"
+        X, y = train_data[features], train_data[target]
+        self.model.fit(X, y)
 
     def predict(self, predict_data):
-        # Do something here to predict
-        return ["X" for _ in range(len(predict_data))]
+          features = [
+            "win_punct",
+            "lost_punct",
+            "points_relative_index",
+            "last5_home",
+            "last5_away",
+            "last_season_points_home",
+            "last_season_points_away",
+        ]
+        predict_data = predict_data[features]
+        predicted_results = self.model.predict(predict_data)
+        return predicted_results
 
     @classmethod
     def load(cls, filename):
