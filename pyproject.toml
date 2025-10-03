@@ -1,0 +1,16 @@
+[project]
+name = "quiniela"
+version = "0.1.0"
+description = "LaLiga ML predictor"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.3.3",
+]
+
+[project.scripts]
+quiniela = "quiniela.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.8.17,<0.9.0"]
+build-backend = "uv_build"

@@ -2,7 +2,6 @@ import pickle
 
 
 class QuinielaModel:
-
     def train(self, train_data):
         # Do something here to train the model
         pass
@@ -13,13 +12,13 @@ class QuinielaModel:
 
     @classmethod
     def load(cls, filename):
-        """ Load model from file """
+        """Load model from file"""
         with open(filename, "rb") as f:
             model = pickle.load(f)
-            assert type(model) == cls
+            assert type(model) is cls
         return model
 
     def save(self, filename):
-        """ Save a model in a file """
+        """Save a model in a file"""
         with open(filename, "wb") as f:
             pickle.dump(self, f)
